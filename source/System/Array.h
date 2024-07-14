@@ -9,19 +9,12 @@ namespace System
 	class Array
 	{
 	public:
-		Array();
-		~Array();
 
 		/* This method to separate the string by a separator */
 		static std::vector<T> explode(std::string str, char separator);
 	private:
 	};
 }
-
-template<typename T>
-inline System::Array<T>::Array()
-{}
-
 
 /* This method to separate the string by a separator */
 template<typename T>
@@ -36,22 +29,11 @@ std::vector<T> System::Array<T>::explode(std::string str, char separator)
             result.emplace_back(tempVal);
             tempVal = "";
         }
-        else
-        {
-            tempVal.append(1, elem);
-        }
+        else tempVal.append(1, elem);
     }
 
     /* If in tempVal remain value, then add to result and clear */
-    if (!tempVal.empty())
-    {
-        result.emplace_back(tempVal);
-    }
+    if (!tempVal.empty()) result.emplace_back(tempVal);
 
     return result;
 }
-
-/* Destructor */
-template<typename T>
-inline System::Array<T>::~Array()
-{}
