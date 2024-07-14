@@ -11,7 +11,7 @@ namespace Networking
 	{
 	public:
 
-		static std::string getResponse(std::string url, std::string args = "");
+		static std::string sendRequest(std::string url, std::string args = "");
 	private:
 	};
 }
