@@ -2,12 +2,14 @@
 # project specific logic here.
 
 set(CPP_FILES 
-"MicroTools.cpp"  
-"Networking/Client.cpp" )
+"MicroTools.cpp" 
+"Networking/Client.cpp" 
+"System/JSON.cpp")
 
 set(HEADER_FILES 
 "Networking/Client.h" 
-"System/Array.h")
+"System/Array.h" 
+"System/JSON.h")
 
 # Add source to this project's executable.
 # add_executable (MicroTools "MicroTools.cpp" "Networking/Client.h" "Networking/Client.cpp" "System/Array.h")
