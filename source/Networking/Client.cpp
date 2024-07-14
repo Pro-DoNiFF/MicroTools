@@ -2,7 +2,7 @@
 
 namespace http = boost::beast::http;
 
-std::string Networking::Client::getResponse(std::string url, std::string args)
+std::string Networking::Client::sendRequest(std::string url, std::string args)
 {
 	boost::asio::io_context io;
 	boost::asio::ip::tcp::resolver resolver(io);
