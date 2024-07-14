@@ -3,23 +3,55 @@
 #include <string>
 #include <vector>
 
-class Array
+namespace System
 {
-public:
-	Array();
-	Array(std::string input);
-	~Array();
-
-private:
-	std::string inputStr;
 	template<typename T>
-	std::vector<T> inputVector {};
-};
+	class Array
+	{
+	public:
+		Array();
+		~Array();
 
-Array::Array(): inputStr("")
-{}
-Array::Array(std::string input) : inputStr(input)
+		/* This method to separate the string by a separator */
+		static std::vector<T> explode(std::string str, char separator);
+	private:
+	};
+}
+
+template<typename T>
+inline System::Array<T>::Array()
 {}
 
-Array::~Array()
+
+/* This method to separate the string by a separator */
+template<typename T>
+std::vector<T> System::Array<T>::explode(std::string str, char separator)
+{
+    std::vector<T> result;
+    std::string tempVal = "";
+    for (char elem : str)
+    {
+        if (elem == separator)
+        {
+            result.emplace_back(tempVal);
+            tempVal = "";
+        }
+        else
+        {
+            tempVal.append(1, elem);
+        }
+    }
+
+    /* If in tempVal remain value, then add to result and clear */
+    if (!tempVal.empty())
+    {
+        result.emplace_back(tempVal);
+    }
+
+    return result;
+}
+
+/* Destructor */
+template<typename T>
+inline System::Array<T>::~Array()
 {}
